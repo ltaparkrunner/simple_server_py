@@ -81,7 +81,7 @@ def task(win, nc, fh):
     
     now = datetime.datetime.now()
     if now.month < 10: sm = "0" + str(now.month)
-    else: sm = str(now.mounth)
+    else: sm = str(now.month)
     if now.day < 10: sd = "0" + str(now.day)
     else: sm = str(now.day)
     win.addstr(2, 0, "Date, time: " + str(now.year ) + "-" + sm + "-" + sd  
@@ -134,6 +134,7 @@ def simple_tcp_server(stop_event, read_probe):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
         # Bind the socket to the specified host and port
+            print("HOST: ", HOST, "PORT", PORT)
             s.bind((HOST, PORT))
         # Listen for incoming connections (allow up to 1 client in the queue)
             s.listen()
